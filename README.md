@@ -1,2 +1,2 @@
 # tofi-coin
-Crypto currency based on tetris game
+Crypto currency based on tetris game.
