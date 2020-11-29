@@ -12,22 +12,22 @@
 
 ### Block header
 Структура header'а блоков:
-| Name | Size |
+| Size | Name |
 |:----: | :---- |
 | 4 bytes | Block number |
 | 32 bytes | Prev block hash |
 | 32 bytes | Merkle root of transactions |
 | 32 bytes | Merkle root of balances | 
 | 4 bytes | Timestamp |
-| 32 bytes | Adress of solver |
+| 32 bytes | Address of solver |
 | 4 bytes | Score |
 
 ### Transaction
 Структура транзакции:
-| Name | Size |
+| Size | Name |
 |:----: | :---- |
-| 32 bytes | Adress of sender |
-| 32 bytes | Adress of receiver |
+| 32 bytes | Address of sender |
+| 32 bytes | Address of receiver |
 | 8 bytes | Amount of currency sended |
 | 8 bytes | Fee for block miner |
 | 33 bytes | Public key of sender |
@@ -37,12 +37,12 @@
 
 ### Balances
 Структура поля balances:
-| Name | Size |
+| Size | Name |
 |:----: | :---- |
-| 8 bytes | Number of adresses |
-|32 bytes | Adress_1 |
-|8 bytes | Balance of adress_1 |
-| ...Number | of adresses |
+| 8 bytes | Number of addresses |
+|32 bytes | Address_1 |
+|8 bytes | Balance of address_1 |
+| ...Number | of addresses |
 
 ## Tetris generation and solution
 Задача всех майнеров состоит в следующем: по известному ограниченному набору фигурок Тетриса необходимо набрать нужное количество очков (goal) в этой игре быстрее всех остальных.
