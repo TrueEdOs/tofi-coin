@@ -1,6 +1,6 @@
 package org.tofi.coin.node.models;
 
-public class BasicBlock {
+public class Block {
     private BlockHeader blockHeader;
     private GameSolution solution;
     private Transaction[] transactions;

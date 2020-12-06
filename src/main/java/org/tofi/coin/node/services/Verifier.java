@@ -2,7 +2,7 @@ package org.tofi.coin.node.services;
 
 import org.springframework.stereotype.Component;
 import org.tofi.coin.node.Utils;
-import org.tofi.coin.node.models.BasicBlock;
+import org.tofi.coin.node.models.Block;
 import org.tofi.coin.node.models.BlockHeader;
 import org.tofi.coin.node.models.Transaction;
 
@@ -14,8 +14,6 @@ import java.security.Signature;
 import java.security.spec.EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Base64;
 
 @Component
 public class Verifier {
@@ -34,7 +32,7 @@ public class Verifier {
         return true;
     }
 
-    public static boolean verifyBlock(BasicBlock block, String hash) throws Exception {
+    public static boolean verifyBlock(Block block, String hash) throws Exception {
         BlockHeader header = block.getBlockHeader();
         String message = header.getNumber()
                 + header.getPrevBlockHash()
