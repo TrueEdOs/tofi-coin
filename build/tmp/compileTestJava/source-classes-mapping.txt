@@ -1,2 +1,0 @@
-org/tofi/coin/node/NodeApplicationTests.java
- org.tofi.coin.node.NodeApplicationTests
