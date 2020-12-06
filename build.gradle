@@ -16,6 +16,7 @@ dependencies {
 	//implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compile group: 'org.web3j', name: 'crypto', version: '5.0.0'
 }
 
 test {

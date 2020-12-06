@@ -37,4 +37,17 @@ public class GameSolution {
     public void setyAxis(int[] yAxis) {
         this.yAxis = yAxis;
     }
+
+    @Override
+    public String toString(){
+        StringBuilder ret = new StringBuilder();
+        ret.append(length);
+        for(int r : rotation)
+            ret.append(r);
+        for(int x : xAxis)
+            ret.append(x);
+        for(int y : yAxis)
+            ret.append(y);
+        return ret.toString();
+    }
 }

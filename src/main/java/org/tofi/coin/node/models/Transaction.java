@@ -55,4 +55,16 @@ public class Transaction {
     public void setSignature(String signature) {
         this.signature = signature;
     }
+
+    @Override
+    public String toString(){
+        StringBuilder ret = new StringBuilder();
+        ret.append(sender)
+                .append(receiver)
+                .append(amount)
+                .append(fee)
+                .append(publicKey)
+                .append(signature);
+        return ret.toString();
+    }
 }

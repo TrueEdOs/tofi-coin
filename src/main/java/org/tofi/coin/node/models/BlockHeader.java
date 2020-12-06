@@ -7,7 +7,7 @@ public class BlockHeader {
     private String merkleRootOfBalances;
     private int timestamp;
     private String addressOfSolver;
-    private int Score;
+    private int score;
 
     public int getNumber() {
         return number;
@@ -58,10 +58,24 @@ public class BlockHeader {
     }
 
     public int getScore() {
-        return Score;
+        return score;
     }
 
     public void setScore(int score) {
-        Score = score;
+        this.score = score;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder ret = new StringBuilder();
+        ret.append(number)
+                .append(prevBlockHash)
+                .append(merkleRootOfTransactions)
+                .append(merkleRootOfBalances)
+                .append(timestamp)
+                .append(addressOfSolver)
+                .append(score);
+
+        return ret.toString();
     }
 }

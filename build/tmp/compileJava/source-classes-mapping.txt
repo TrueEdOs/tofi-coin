@@ -1,0 +1,18 @@
+org/tofi/coin/node/models/GameSolution.java
+ org.tofi.coin.node.models.GameSolution
+org/tofi/coin/node/models/Transaction.java
+ org.tofi.coin.node.models.Transaction
+org/tofi/coin/node/models/BasicBlock.java
+ org.tofi.coin.node.models.BasicBlock
+org/tofi/coin/node/services/ApiController.java
+ org.tofi.coin.node.services.ApiController
+org/tofi/coin/node/services/Verifier.java
+ org.tofi.coin.node.services.Verifier
+org/tofi/coin/node/NodeApplication.java
+ org.tofi.coin.node.NodeApplication
+org/tofi/coin/node/services/Core.java
+ org.tofi.coin.node.services.Core
+org/tofi/coin/node/models/Balances.java
+ org.tofi.coin.node.models.Balances
+org/tofi/coin/node/models/BlockHeader.java
+ org.tofi.coin.node.models.BlockHeader
