@@ -51,6 +51,9 @@ public class Utils {
             }
         }
 
+        if (hashes.isEmpty()) {
+            return Utils.byteArrayToHex(digest.digest("".getBytes()));
+        }
         return hashes.get(0);
     }
 }

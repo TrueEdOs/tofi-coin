@@ -2,10 +2,10 @@ package org.tofi.coin.node.models;
 
 public class BlockHeader {
     private int number;
+    private String hash;
     private String prevBlockHash;
     private String merkleRootOfTransactions;
-    private String merkleRootOfBalances;
-    private int timestamp;
+    private long timestamp;
     private String addressOfSolver;
     private int score;
 
@@ -15,6 +15,14 @@ public class BlockHeader {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
     }
 
     public String getPrevBlockHash() {
@@ -33,19 +41,11 @@ public class BlockHeader {
         this.merkleRootOfTransactions = merkleRootOfTransactions;
     }
 
-    public String getMerkleRootOfBalances() {
-        return merkleRootOfBalances;
-    }
-
-    public void setMerkleRootOfBalances(String merkleRootOfBalances) {
-        this.merkleRootOfBalances = merkleRootOfBalances;
-    }
-
-    public int getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(int timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -71,7 +71,6 @@ public class BlockHeader {
         ret.append(number)
                 .append(prevBlockHash)
                 .append(merkleRootOfTransactions)
-                .append(merkleRootOfBalances)
                 .append(timestamp)
                 .append(addressOfSolver)
                 .append(score);

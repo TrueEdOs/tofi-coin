@@ -1,12 +1,22 @@
 package org.tofi.coin.node.models;
 
 public class Transaction {
+    private String hash;
     private String sender;
     private String receiver;
+    private int block;
     private long amount;
     private long fee;
     private String publicKey;
     private String signature;
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
+    }
 
     public String getSender() {
         return sender;
@@ -22,6 +32,15 @@ public class Transaction {
 
     public void setReceiver(String receiver) {
         this.receiver = receiver;
+    }
+
+    public int getBlock() {
+        return block;
+    }
+
+    public Transaction setBlock(int block) {
+        this.block = block;
+        return this;
     }
 
     public long getAmount() {

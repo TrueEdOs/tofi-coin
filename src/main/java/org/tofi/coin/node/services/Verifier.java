@@ -37,7 +37,6 @@ public class Verifier {
         String message = header.getNumber()
                 + header.getPrevBlockHash()
                 + header.getMerkleRootOfTransactions()
-                + header.getMerkleRootOfBalances()
                 + header.getTimestamp()
                 + header.getAddressOfSolver()
                 + header.getScore()
