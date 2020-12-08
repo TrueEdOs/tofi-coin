@@ -37,12 +37,16 @@ public class Core {
         state = storage.loadState();
 
         for (Block block : state.getProceededBlocks()) {
+            blocks.put(block.getBlockHeader().getHash(), block);
+            balances.put(block.getBlockHeader().getAddressOfSolver(), balances.getOrDefault(block.getBlockHeader().getAddressOfSolver(), 0L) + AWARD);
+
             for (Transaction transaction : block.getTransactions()) {
                 String sender = transaction.getSender();
                 String receiver = transaction.getReceiver();
                 transaction.setBlock(block.getBlockHeader().getNumber());
                 long amount = transaction.getAmount();
 
+                transactions.put(transaction.getHash(), transaction);
                 balances.put(sender, balances.get(sender) - amount);
                 balances.put(receiver, balances.getOrDefault(receiver, 0L) + amount);
                 pendingTransactions.remove(transaction.getHash());
@@ -51,16 +55,21 @@ public class Core {
     }
 
     private boolean proceedBlock(final Block block) {
+        if (blocks.containsKey(block.getBlockHeader().getHash())) {
+            return false;
+        }
+
         BlockHeader blockHeader = block.getBlockHeader();
 
-        if (blockHeader.getTimestamp() < System.currentTimeMillis()) {
+        if (blockHeader.getTimestamp() > System.currentTimeMillis()) {
             return false;
         }
 
         if (!state.getProceededBlocks().isEmpty()) {
             Block lastBlock = state.getProceededBlocks().get(state.getProceededBlocks().size() - 1);
 
-            if (blockHeader.getNumber() != lastBlock.getBlockHeader().getNumber() - 1 || !blockHeader.getPrevBlockHash().equals(lastBlock.getBlockHeader().getHash())) {
+            if (blockHeader.getNumber() != lastBlock.getBlockHeader().getNumber() + 1 ||
+                    !blockHeader.getPrevBlockHash().equals(lastBlock.getBlockHeader().getHash())) {
                 return false;
             }
         }
@@ -105,6 +114,8 @@ public class Core {
         state.getProceededBlocks().add(block);
         blocks.put(blockHeader.getHash(), block);
         state.getProceededBlocks().add(block);
+
+        state.setBlocksProceeded(state.getBlocksProceeded() + 1);
         storage.saveState(state);
         LOG.info("New block proceeded. Block hash" + blockHeader.getHash());
         return true;

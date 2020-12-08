@@ -1,7 +1,12 @@
 package org.tofi.coin.node.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.tofi.coin.node.dto.PushedResponse;
 import org.tofi.coin.node.models.Block;
 import org.tofi.coin.node.models.Transaction;
@@ -14,6 +19,19 @@ import java.util.List;
 
 public class ApiController {
     private final Core core;
+
+    @Configuration
+    public class MyConfiguration {
+        @Bean
+        public WebMvcConfigurer corsConfigurer() {
+            return new WebMvcConfigurerAdapter() {
+                @Override
+                public void addCorsMappings(CorsRegistry registry) {
+                    registry.addMapping("/**");
+                }
+            };
+        }
+    }
 
     @Autowired
     public ApiController(final Core core) {
