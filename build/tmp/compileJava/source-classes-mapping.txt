@@ -20,10 +20,10 @@ org/tofi/coin/node/dto/PushedResponse.java
  org.tofi.coin.node.dto.PushedResponse
 org/tofi/coin/node/models/BlockHeader.java
  org.tofi.coin.node.models.BlockHeader
-org/tofi/coin/node/services/Core.java
- org.tofi.coin.node.services.Core
- org.tofi.coin.node.services.Core$Worker
 org/tofi/coin/node/services/ApiController.java
  org.tofi.coin.node.services.ApiController
  org.tofi.coin.node.services.ApiController$MyConfiguration
  org.tofi.coin.node.services.ApiController$MyConfiguration$1
+org/tofi/coin/node/services/Core.java
+ org.tofi.coin.node.services.Core
+ org.tofi.coin.node.services.Core$Worker

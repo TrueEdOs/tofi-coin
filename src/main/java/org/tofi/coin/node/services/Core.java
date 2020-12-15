@@ -107,6 +107,7 @@ public class Core {
             balances.put(sender, balances.get(sender) - amount);
             balances.put(receiver, balances.getOrDefault(receiver, 0L) + amount);
             pendingTransactions.remove(transaction.getHash());
+            transactions.put(transaction.getHash(), transaction);
         }
 
         String solver = block.getBlockHeader().getAddressOfSolver();
